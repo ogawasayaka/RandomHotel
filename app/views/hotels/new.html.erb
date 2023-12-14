@@ -15,6 +15,14 @@
         <%= link_to 'くちこみ',  @hotel.name_url, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
       </div>
 
+     <div>
+        <%= link_to hotels_path do %>
+          <p> もう一度選ぶ <p>
+        <% end %>
+        <%= link_to "https://twitter.com/intent/tweet?text=#{@hotel.name} に宿泊してみたい！ &url=https://　　.fly.com" do %>
+          <p> X共有 <p>
+        <% end %>
+      </div>
       
     
     </body>
