@@ -1,0 +1,25 @@
+
+    <% if @hotel.present? %>
+
+     <p>雪肌精と露天風呂があると噂の宿は・・・</p>
+    <body>
+      <h2><%= @hotel.name %></h2>
+      <p><%= @hotel.city%>
+      <div>
+      <%= link_to 'ホテル詳細情報', @hotel.review_url, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
+      </div>
+
+      <p>口コミをのぞいてみよ</p>
+    
+      <div>
+        <%= link_to 'くちこみ',  @hotel.name_url, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
+      </div>
+
+      
+    
+    </body>
+      <br>
+
+    <% else %>
+      <h2>ホテル情報が見つかりません</h2>
+    <% end %>
