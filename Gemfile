@@ -75,3 +75,6 @@ group :test do
   gem "selenium-webdriver"
 
 end
+gem 'cssbundling-rails'
+
+gem "dockerfile-rails", ">= 1.5", :group => :development

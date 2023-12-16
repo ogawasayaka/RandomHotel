@@ -18,10 +18,9 @@ begin
   # ページへのアクセス
   driver.get "https://travel.rakuten.co.jp/review/"
   element = driver.find_element(:id, 'searchBox')
-  element.send_keys('雪肌精 露天風呂')
+  element.send_keys('看板猫 温泉')
   driver.find_element(:id, 'searchSubmit').click
   driver.find_element(:xpath, '//*[@id="result"]/div[32]/ul/li[1]/a[2]').click
-
 
 
 
@@ -55,7 +54,7 @@ urls.each_with_index do |url, index|
     end
 
     CSV.open("result.csv", "a") do |file|
-      file << [index + 97, name, city, name_url, url]
+      file << [index + 253, name, city, name_url, url]
     end
   end
 
