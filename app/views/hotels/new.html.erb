@@ -2,15 +2,14 @@
     <% if @hotel.present? %>
       <%if @random_id < 115 %>
         <p>雪肌精と露天風呂があると噂の宿は・・・</p>
-      <% end %>
-      <%if @random_id > 114 %>
+      <% else %>
         <p>看板猫がいると噂の癒しの温泉宿は・・・</p>
       <% end %>
 
 
       <h2><%= @hotel.name %></h2>
       <p><%= @hotel.city%>
-      <div>
+      <div class="m-20">
       <%= link_to 'ホテル詳細情報', @hotel.review_url, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
       </div>
 
