@@ -1,10 +1,23 @@
 
-    <% if @hotel.present? %>
-      <%if @random_id < 115 %>
-        <p>雪肌精と露天風呂があると噂の宿は・・・</p>
-      <% else %>
-        <p>看板猫がいると噂の癒しの温泉宿は・・・</p>
-      <% end %>
+<!-- Google tag (gtag.js) -->
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LZVK5V6D4F"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-LZVK5V6D4F');
+</script>
+</head>
+
+<body>
+  <% if @hotel.present? %>
+    <%if @random_id < 115 %>
+      <p>雪肌精と露天風呂があると噂の宿は・・・</p>
+    <% else %>
+      <p>看板猫がいると噂の癒しの温泉宿は・・・</p>
+    <% end %>
 
 
       <h2><%= @hotel.name %></h2>
