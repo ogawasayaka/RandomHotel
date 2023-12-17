@@ -1,35 +1,32 @@
 
-    <% if @hotel.present? %>
-      <%if @random_id < 115 %>
-        <p>雪肌精と露天風呂があると噂の宿は・・・</p>
-      <% else %>
-        <p>看板猫がいると噂の癒しの温泉宿は・・・</p>
-      <% end %>
-
-
+<div class='md:flex flex-row'>
+<body>
+  <% if @hotel.present? %>
+    <%= image_for_random_id(@random_id) %>
       <h2><%= @hotel.name %></h2>
       <p><%= @hotel.city%>
       <div class="m-20">
-      <%= link_to 'ホテル詳細情報', @hotel.review_url, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
+      <%= link_to 'ホテル詳細情報', @hotel.review_url, class: "bg-blue-200 hover:bg-blue-400 text-white font-bold py-1 px-3 rounded" %>
       </div>
-
+    
     <p>口コミをのぞいてみよ</p>
     
-    <div>
-      <%= link_to 'くちこみ',  @hotel.name_url, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
-    </div>
+      <%= link_to 'くちこみ',  @hotel.name_url, class: "bg-blue-400 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded" %>
+    
 
     <div>
       <%= link_to hotels_path do %>
         <p> もう一度選ぶ <p>
       <% end %>
-      <%= link_to "https://twitter.com/intent/tweet?text=#{@hotel.name} に宿泊してみたい！ &url=https://　　.fly.com" do %>
+      <%= link_to "https://twitter.com/intent/tweet?text=#{@hotel.name} に宿泊してみたい！ &url=https://random_hotel.fly.com" do %>
         <p> X共有 <p>
       <% end %>
     </div>
       
     
     </body>
+</div>
+
       <br>
 
     <% else %>
