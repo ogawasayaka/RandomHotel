@@ -1,22 +1,19 @@
-<!-- Google tag (gtag.js) -->
-<head>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-LZVK5V6D4F"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-LZVK5V6D4F');
-</script>
-</head>
 
 <body>
-<div class='w-10 h-10 bg-red-600'>
-  <br>
-    <h1>RANDOM HOTEL</h1>
-  <br>
+<div class='h-screen w-screen flex justify-center items-center'>
   <div>
-    <%= link_to 'どこかのホテルへ', new_hotel_path, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
+    <h1>RANDOM Hotel</h1>
+  </div>
+  <div>
+    <%= javascript_include_tag "/custom/hito.js" %>
+  </div>
+  <div>
+  <%= image_tag('hito.png', size: '100x200', alt: '旅行客')%>
+  <button type=button id="info-btn">start</button> 
+  </div>
+
+  <div>
+    <%= link_to 'どこかの温泉宿', new_hotel_path, class: "bg-blue-500 hover:opacity-75 bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
   </div>
 </div>
 </body>
