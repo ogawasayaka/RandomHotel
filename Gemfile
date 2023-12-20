@@ -78,3 +78,7 @@ end
 gem 'cssbundling-rails'
 
 gem "dockerfile-rails", ">= 1.5", :group => :development
+gem 'jquery-rails'
+gem 'dotenv-rails'
+gem 'httpclient'
+gem 'gon'

@@ -1,28 +1,93 @@
 
-<div class='md:flex flex-row'>
-<body>
+<html>
+<div class="w-1/2 md:w-full">
+  <body>
+  <div class='h-screen w-screen flex justify-center items-center'>
   <% if @hotel.present? %>
-    <%= image_for_random_id(@random_id) %>
-      <h2><%= @hotel.name %></h2>
-      <p><%= @hotel.city%>
-      <div class="m-20">
-      <%= link_to 'ホテル詳細情報', @hotel.review_url, class: "bg-blue-200 hover:bg-blue-400 text-white font-bold py-1 px-3 rounded" %>
+      <div class='md:flex flex-col'>
+        <div>
+        <%= image_for_random_id(@random_id) %>
+        <p class="subpixel-antialiased"><%= @hotel.name %></p>
+        </div>
+        <br/>
+      
+        <div>
+          <%= link_to 'ホテル詳細情報', @hotel.review_url, class: "bg-blue-400 hover:bg-blue-600 text-white font-bold py-1 px-3 rounded" %>
+        </div>
+        <br/>
+      
+        <div>
+          <%= link_to 'くちこみ',  @hotel.name_url, class: "bg-blue-400 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded" %>
+        </div>
+        
       </div>
+      <div class="w-2/5 h-4/6" id="map"></div>
     
-    <p>口コミをのぞいてみよ</p>
-    
-      <%= link_to 'くちこみ',  @hotel.name_url, class: "bg-blue-400 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded" %>
-    
-
+    <div class="md:flex">
     <div>
       <%= link_to hotels_path do %>
         <p> もう一度選ぶ <p>
       <% end %>
+    </div>
+    
+    <div>
       <%= link_to "https://twitter.com/intent/tweet?text=#{@hotel.name} に宿泊してみたい！ &url=https://random_hotel.fly.com" do %>
         <p> X共有 <p>
       <% end %>
     </div>
-      
+    </div>
+
+<script>
+let map;
+let service;
+let infowindow;
+
+function initMap() {
+
+  infowindow = new google.maps.InfoWindow();
+  map = new google.maps.Map(document.getElementById("map"), {
+    zoom: 15,
+  });
+
+  const request = {
+    query: "<%= @hotel.name %>",
+    fields: ["name", "geometry"],
+  };
+
+  service = new google.maps.places.PlacesService(map);
+  service.findPlaceFromQuery(request, (results, status) => {
+    if (status === google.maps.places.PlacesServiceStatus.OK && results) {
+      for (let i = 0; i < results.length; i++) {
+        createMarker(results[i]);
+      }
+
+      map.setCenter(results[0].geometry.location);
+    }
+  });
+}
+
+function createMarker(place) {
+  if (!place.geometry || !place.geometry.location) return;
+
+  const marker = new google.maps.Marker({
+    map,
+    position: place.geometry.location,
+  });
+
+  google.maps.event.addListener(marker, "click", () => {
+    infowindow.setContent(place.name || "");
+    infowindow.open(map);
+  });
+}
+
+window.initMap = initMap;
+
+</script>
+<script
+      src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['API_KEY']%>&callback=initMap&libraries=places&v=weekly"
+      defer
+    ></script>
+
     
     </body>
 </div>
@@ -32,3 +97,5 @@
     <% else %>
       <h2>ホテル情報が見つかりません</h2>
     <% end %>
+</div>
+</html>

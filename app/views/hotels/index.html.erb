@@ -1,18 +1,25 @@
-
+<html>
 <body>
-<div class='md:flex flex-row'>
-  <div>
-    <h1 class='h-screen w-screen flex justify-center items-center'>RANDOM Hotel</h1>
-  </div>
-  <div>
-  <%= image_tag('hito.png', size: '100x200', alt: '旅行客',id: 'image')%>
-  <button id = "start">Start</button>
-  <% javascript_include_tag "/javascript/custom/hito.js" %>
-  
-  </div>
 
   <div>
-    <%= link_to 'どこかの温泉宿', new_hotel_path, class: "bg-blue-500 hover:opacity-75 bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
+    <h1 class='flex justify-center items-center'>RANDOM Hotel</h1>
   </div>
-</div>
+  <br>
+  <br>
+
+  <div class='flex justify-center items-center'>
+    <%= image_tag "hito.png", size: '100x200', alt: '旅行客', id: 'image'%>
+      <div>
+        <button class= "btn-secondary" id = "start">Start</button>
+      </div>
+  </div>
+  
+  <br>
+  <br>
+
+  <div class='flex justify-center items-center'>
+    <%= link_to 'どこかの温泉宿', new_hotel_path, class: "bg-blue-700  hover:bg-blue-400 text-white font-bold py-2 px-4 rounded" %>
+  </div>
+
 </body>
+</html>
