@@ -1,25 +1,23 @@
-<html>
-<body>
+  <div class="navbar bg-base-100">
+  <a class="btn btn-ghost text-xl text-gray-500">RANDOM Hotel</a>
+</div>
+  
 
-  <div>
-    <h1 class='flex justify-center items-center'>RANDOM Hotel</h1>
-  </div>
   <br>
   <br>
 
   <div class='flex justify-center items-center'>
-    <%= image_tag "hito.png", size: '100x200', alt: '旅行客', id: 'image'%>
-      <div>
-        <button class= "btn-secondary" id = "start">Start</button>
-      </div>
+    <%= image_tag "hito.png", size: '100x200', alt: '旅行客'%>
   </div>
   
   <br>
   <br>
+  <h2 class='flex justify-center items-center text-gray-500'>癒しの宿がみつかるかも....<h2>
+
+  <br>
+  <br>
 
   <div class='flex justify-center items-center'>
-    <%= link_to 'どこかの温泉宿', new_hotel_path, class: "bg-blue-700  hover:bg-blue-400 text-white font-bold py-2 px-4 rounded" %>
+    <%= link_to 'どこかの温泉宿', new_hotel_path, class: "btn btn-secondary btn btn transition hover:opacity-40 text-gray-500" %>
   </div>
 
-</body>
-</html>
