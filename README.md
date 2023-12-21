@@ -1,24 +1,17 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## アプリ名
+Random Hotel
+## アプリの概要
+癒しの宿をランダムに選んでくれるアプリです。
 
-Things you may want to cover:
+## 使用技術
+Ruby 3.1.4
+Rails 7.0.8
+CSS tailwind, daisyUI
+Webアプリケーションサーバ fly.io
+データベース PostgreSQL
+Google Maps Platform API
+  Maps JavaScript API
+  Places API
 
-* Ruby version
-ruby 3.1.4
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
