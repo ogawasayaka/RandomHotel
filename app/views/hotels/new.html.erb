@@ -11,17 +11,24 @@
         <div>
         <%= image_for_random_id(@random_id) %>
         <br/>
-        <p class="text-lg font-bold bg-white h-8 justify-center items-center text-gray-500"><%= @hotel.name %></p>
+        <p class="text-lg font-bold bg-white h-8 justify-center items-center text-gray-500"><%= @hotel.name %> </p>
+        </div>
+        <br/>
+        <div>
+        <p class="justify-center items-center text-gray-500"><%= @hotel.city %> </p>
         </div>
         <br/>
       
         <div>
-          <%= link_to 'ホテル詳細情報', @hotel.review_url, class: "btn btn-primary btn btn-xs transition hover:opacity-40 text-gray-500" %>
+          <%= link_to 'ホテル詳細情報（外部サイトへ）', @hotel.review_url, class: "btn btn-success btn btn-xs transition hover:opacity-40 text-gray-500" %>
+          <%= link_to 'くちこみを見る（外部サイトへ）',  @hotel.name_url, class: "btn btn-success btn btn-xs transition hover:opacity-40 text-gray-500" %>
         </div>
         <br/>
-      
+        <br/>
         <div>
-          <%= link_to 'くちこみ',  @hotel.name_url, class: "btn btn-secondary btn btn-sm transition hover:opacity-40 text-gray-500" %>
+          <%= link_to new_hotel_path do %>
+          <button class="btn btn-secondary btn transition hover:opacity-40 text-gray-500"> もう一度選ぶ </button>
+          <% end %>
         </div>
       </div>
       <br/>
@@ -34,17 +41,13 @@
     <br/>
     <div class="md:flex flex-col justify-center items-center">
   
-    <div>
-      <%= link_to hotels_path do %>
-        <button class="btn btn-primary btn btn-xs transition hover:opacity-40 text-gray-500"> もう一度選ぶ </button>
-      <% end %>
-    </div>
     <br/>
 
     <div>
-      <%= link_to "https://twitter.com/intent/tweet?text=#{@hotel.name} に宿泊してみたい！&url=https://random-hotel.fly.dev/hotels" do %>
+      <%= link_to "https://twitter.com/intent/tweet?text=#{@hotel.name}【#{@hotel.city}】 に宿泊してみたい！&url=https://random-hotel.fly.dev/hotels" do %>
         <button class="btn btn-primary btn btn-xs transition hover:opacity-40 text-gray-500"> X共有 </button>
       <% end %>
+    </div>
     </div>
   </div>
 </div>
